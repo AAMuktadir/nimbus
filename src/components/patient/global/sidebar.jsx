@@ -20,7 +20,7 @@ export default function Sidebar() {
       <div className="text-white text-[15px] font-bold px-6">
         <section
           className={`flex items-center gap-4 py-3 px-2 rounded-lg ${
-            location.pathname === "/" && "bg-[#1C1C21]"
+            location.pathname === "/patient/dashboard" && "bg-[#1C1C21]"
           }`}
         >
           <p className="text-[16px]">
