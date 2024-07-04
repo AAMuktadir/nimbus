@@ -2,6 +2,8 @@ import React from "react";
 import Title from "../../components/patient/global/title";
 import FilterForm from "../../components/patient/filter";
 import DoctorCard from "../../components/patient/doctorCard";
+import Sidebar from "../../components/patient/global/sidebar";
+import Header from "../../components/patient/global/header";
 
 export default function FindConsultant() {
   const doctors = [
@@ -32,16 +34,25 @@ export default function FindConsultant() {
   ];
 
   return (
-    <div className="p-8">
-      <Title title={"Dentist"} />
+    <div className="w-full sm:flex">
+      <div className="sm:w-1/5 min-h-full">
+        <Sidebar />
+      </div>
 
-      <FilterForm />
+      <div className="sm:w-4/5 bg-[#F6F6F6]">
+        <Header />
+        <div className="p-8 ">
+          <Title title={"Dentist"} />
 
-      <div className="">
-        <div className="flex justify-center flex-wrap">
-          {doctors.map((doctor) => (
-            <DoctorCard key={doctor.id} doctor={doctor} />
-          ))}
+          <FilterForm />
+
+          <div className="">
+            <div className="flex justify-center flex-wrap">
+              {doctors.map((doctor) => (
+                <DoctorCard key={doctor.id} doctor={doctor} />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -28,7 +28,7 @@ export default function Sidebar() {
           </p>
 
           <h4>
-            <a href="/">Dashboard</a>
+            <a href="/patient/dashboard">Dashboard</a>
           </h4>
         </section>
 

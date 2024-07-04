@@ -3,6 +3,8 @@ import { useState } from "react";
 import DoctorCard from "../../components/patient/doctorCard";
 import Title from "../../components/patient/global/title";
 import AllDoctorTable from "../../components/patient/allDoctorsTable";
+import Sidebar from "../../components/patient/global/sidebar";
+import Header from "../../components/patient/global/header";
 
 export default function Appointment() {
   const [showAllAppointments, setShowAllAppointments] = useState(true);
@@ -84,47 +86,57 @@ export default function Appointment() {
   ];
 
   return (
-    <div className="h-screen p-8">
-      <div className="flex gap-6 pb-12">
-        <button
-          className={`text-[18px] font-bold p-2 bg-white rounded-lg cursor-pointer ${
-            showAllAppointments ? "text-black" : "text-[#007055]"
-          }`}
-          onClick={() => setShowAllAppointments(false)}
-        >
-          Ongoing Appointment
-        </button>
-
-        <button
-          className={`text-[18px] font-bold p-2 bg-white rounded-lg cursor-pointer ${
-            showAllAppointments ? "text-[#007055]" : "text-black"
-          }`}
-          onClick={() => setShowAllAppointments(true)}
-        >
-          All Appointment
-        </button>
+    <div className="w-full sm:flex">
+      <div className="sm:w-1/5 min-h-full">
+        <Sidebar />
       </div>
 
-      {showAllAppointments ? (
-        <div className="bg-white px-8 rounded-xl pb-8">
-          <section className="py-5">
-            <Title title={`${allAppointment.length} Appointment`} />
-          </section>
-          <AllDoctorTable doctors={allAppointment} />
-        </div>
-      ) : (
-        <div className="">
-          <section className="py-5">
-            <Title title={`You have ${onGoing.length} Appointment`} />
-          </section>
+      <div className="sm:w-4/5 bg-[#F6F6F6]">
+        <Header />
 
-          <div className="flex justify-center flex-wrap">
-            {onGoing.map((doctor) => (
-              <DoctorCard key={doctor.id} doctor={doctor} />
-            ))}
+        <div className="h-screen p-8 ">
+          <div className="flex gap-6 pb-12">
+            <button
+              className={`text-[18px] font-bold p-2 bg-white rounded-lg cursor-pointer ${
+                showAllAppointments ? "text-black" : "text-[#007055]"
+              }`}
+              onClick={() => setShowAllAppointments(false)}
+            >
+              Ongoing Appointment
+            </button>
+
+            <button
+              className={`text-[18px] font-bold p-2 bg-white rounded-lg cursor-pointer ${
+                showAllAppointments ? "text-[#007055]" : "text-black"
+              }`}
+              onClick={() => setShowAllAppointments(true)}
+            >
+              All Appointment
+            </button>
           </div>
+
+          {showAllAppointments ? (
+            <div className="bg-white px-8 rounded-xl pb-8">
+              <section className="py-5">
+                <Title title={`${allAppointment.length} Appointment`} />
+              </section>
+              <AllDoctorTable doctors={allAppointment} />
+            </div>
+          ) : (
+            <div className="">
+              <section className="py-5">
+                <Title title={`You have ${onGoing.length} Appointment`} />
+              </section>
+
+              <div className="flex justify-center flex-wrap">
+                {onGoing.map((doctor) => (
+                  <DoctorCard key={doctor.id} doctor={doctor} />
+                ))}
+              </div>
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </div>
   );
 }
