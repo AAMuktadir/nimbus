@@ -1,6 +1,6 @@
 import React from "react";
 import Title from "../../components/patient/global/title";
-import FilterForm from "./filter";
+import FilterForm from "../../components/patient/filter";
 import DoctorCard from "../../components/patient/doctorCard";
 
 export default function FindConsultant() {

@@ -8,7 +8,7 @@ import { useLocation } from "react-router-dom";
 export default function Sidebar() {
   const location = useLocation();
   return (
-    <div className="w-full bg-[#0D0E12] h-screen">
+    <div className="w-full bg-[#0D0E12] h-full">
       <div className="p-6">
         <img src="/Logo.png" alt="logo" height="100" width="100" className="" />
       </div>
@@ -54,12 +54,18 @@ export default function Sidebar() {
           </h4>
         </section>
 
-        <section className="flex items-center gap-4 py-3 px-2 rounded-lg">
+        <section
+          className={`flex items-center gap-4 py-3 px-2  rounded-lg ${
+            location.pathname === "/patient/appointment" && "bg-[#1C1C21]"
+          }`}
+        >
           <p className="text-[16px]">
             <AiOutlineSchedule />
           </p>
 
-          <h4>Appointment</h4>
+          <h4>
+            <a href="/patient/appointment">Appointment</a>
+          </h4>
         </section>
       </div>
     </div>

@@ -6,7 +6,7 @@ export default function PatientDashboard() {
   const appointment1 = 6;
   const appointment2 = 74;
   return (
-    <div className="p-8">
+    <div className="p-8 h-screen">
       <Title title={"Dashboard"} />
 
       <div className="flex w-full py-8 gap-4">

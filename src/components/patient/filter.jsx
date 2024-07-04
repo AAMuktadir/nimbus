@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Title from "../../components/patient/global/title";
+import Title from "./global/title";
 
 export default function FilterForm() {
   const [name, setName] = useState("");
