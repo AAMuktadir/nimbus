@@ -1,10 +1,10 @@
 import React from "react";
 import { useState } from "react";
-import DoctorCard from "../../components/patient/doctorCard";
 import Title from "../../components/patient/global/title";
 import AllDoctorTable from "../../components/patient/allDoctorsTable";
 import Sidebar from "../../components/patient/global/sidebar";
 import Header from "../../components/patient/global/header";
+import OngoingAppointmentCard from "../../components/patient/appointment/ongoingAppointmentCard";
 
 export default function Appointment() {
   const [showAllAppointments, setShowAllAppointments] = useState(true);
@@ -14,24 +14,33 @@ export default function Appointment() {
       image: "/img/doctor-F.png",
       name: "Emma Watson",
       specialization: "Destist",
-      reviews: 5,
-      totalReviews: 74,
+      date: "12 Jun 2024",
+      time: "12:00 PM",
     },
     {
       id: 2,
       image: "/img/doctor-M.png",
       name: "Steve Smith",
       specialization: "Orthopedic",
-      reviews: 5,
-      totalReviews: 74,
+      date: "12 Jun 2024",
+      time: "12:00 PM",
     },
     {
       id: 3,
       image: "/img/doctor-M.png",
       name: "Mitchel Johnson",
       specialization: "Medicine",
-      reviews: 5,
-      totalReviews: 74,
+      date: "12 Jun 2024",
+      time: "12:00 PM",
+    },
+
+    {
+      id: 4,
+      image: "/img/doctor-M.png",
+      name: "Muktadir",
+      specialization: "Medicine",
+      date: "12 Jun 2024",
+      time: "12:00 PM",
     },
   ];
 
@@ -91,10 +100,10 @@ export default function Appointment() {
         <Sidebar />
       </div>
 
-      <div className="sm:w-4/5 bg-[#F6F6F6]">
+      <div className="sm:w-4/5 bg-[#F6F6F6] h-full">
         <Header />
 
-        <div className="h-screen p-8 ">
+        <div className="h-full p-8 ">
           <div className="flex gap-6 pb-12">
             <button
               className={`text-[18px] font-bold p-2 bg-white rounded-lg cursor-pointer ${
@@ -129,8 +138,11 @@ export default function Appointment() {
               </section>
 
               <div className="flex justify-center flex-wrap">
-                {onGoing.map((doctor) => (
-                  <DoctorCard key={doctor.id} doctor={doctor} />
+                {onGoing.map((appointments) => (
+                  <OngoingAppointmentCard
+                    key={appointments.id}
+                    appointments={appointments}
+                  />
                 ))}
               </div>
             </div>

@@ -3,7 +3,7 @@ import React from "react";
 export default function AllDoctorTable({ doctors }) {
   return (
     <div className="overflow-x-auto">
-      <table className="min-w-full bg-white">
+      <table className="min-w-full bg-white h-full">
         <thead className="">
           <tr className="text-left text-[18px]">
             <th className="py-2 pr-4">Consultant</th>
