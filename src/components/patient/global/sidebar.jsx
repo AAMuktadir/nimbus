@@ -32,12 +32,18 @@ export default function Sidebar() {
           </h4>
         </section>
 
-        <section className="flex items-center gap-4 py-3 px-2 rounded-lg">
+        <section
+          className={`flex items-center gap-4 py-3 px-2  rounded-lg ${
+            location.pathname === "/patient/chat" && "bg-[#1C1C21]"
+          }`}
+        >
           <p className="text-[16px]">
             <IoChatbubble />
           </p>
 
-          <h4>Chat</h4>
+          <h4>
+            <a href="/patient/chat">Chat</a>
+          </h4>
         </section>
 
         <section

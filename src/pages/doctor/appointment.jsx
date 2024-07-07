@@ -1,12 +1,12 @@
 import React from "react";
 import { useState } from "react";
-import Title from "../../components/patient/global/title";
-import AllDoctorTable from "../../components/patient/allDoctorsTable";
-import Sidebar from "../../components/patient/global/sidebar";
-import Header from "../../components/patient/global/header";
-import OngoingAppointmentCard from "../../components/patient/appointment/ongoingAppointmentCard";
+import TitleDoctor from "../../components/doctor/global/title";
+import SidebarDoctor from "../../components/doctor/global/sidebar";
+import HeaderDoctor from "../../components/doctor/global/header";
+import OngoingAppointmentCardDoctor from "../../components/doctor/ongointAppointmentCardDoctor";
+import AllPatientsTable from "../../components/doctor/allPatientsTable";
 
-export default function Appointment() {
+export default function AppointmentDoctor() {
   const [showAllAppointments, setShowAllAppointments] = useState(true);
   const onGoing = [
     {
@@ -44,64 +44,54 @@ export default function Appointment() {
     },
   ];
 
-  const allAppointment = [
+  const allPatient = [
     {
       id: 1,
       image: "/img/doctor-F.png",
       name: "Abcd Efg",
-      specialization: "Destist",
-      date: "11/6/2024",
-      reviews: 5,
-      totalReviews: 74,
+      problem: "Cavities",
+      tookService: 10,
     },
     {
       id: 2,
       image: "/img/doctor-M.png",
       name: "Hijk Lmnop",
-      specialization: "Orthopedic",
-      date: "11/6/2024",
-      reviews: 5,
-      totalReviews: 74,
+      problem: "Cavities",
+      tookService: 10,
     },
     {
       id: 3,
       image: "/img/doctor-M.png",
       name: "Lionel Messi",
-      specialization: "Medicine",
-      date: "11/6/2024",
-      reviews: 5,
-      totalReviews: 74,
+      problem: "Cavities",
+      tookService: 10,
     },
 
     {
       id: 4,
       image: "/img/doctor-M.png",
       name: "CR7",
-      specialization: "Medicine",
-      date: "11/6/2024",
-      reviews: 5,
-      totalReviews: 74,
+      problem: "Cavities",
+      tookService: 10,
     },
 
     {
       id: 5,
       image: "/img/doctor-F.png",
       name: "Jeniffer",
-      specialization: "Destist",
-      date: "11/6/2024",
-      reviews: 3,
-      totalReviews: 74,
+      problem: "Cavities",
+      tookService: 10,
     },
   ];
 
   return (
     <div className="w-full sm:flex">
       <div className="sm:w-1/5 min-h-full">
-        <Sidebar />
+        <SidebarDoctor />
       </div>
 
       <div className="sm:w-4/5 bg-[#F6F6F6] h-full">
-        <Header />
+        <HeaderDoctor />
 
         <div className="h-full p-4 sm:p-8">
           <div className="flex gap-6 pb-12">
@@ -127,19 +117,19 @@ export default function Appointment() {
           {showAllAppointments ? (
             <div className="bg-white px-8 rounded-xl pb-8">
               <section className="py-5">
-                <Title title={`${allAppointment.length} Appointment`} />
+                <TitleDoctor title={`${allPatient.length} Appointed`} />
               </section>
-              <AllDoctorTable doctors={allAppointment} />
+              <AllPatientsTable patients={allPatient} />
             </div>
           ) : (
             <div className="">
               <section className="py-5">
-                <Title title={`You have ${onGoing.length} Appointment`} />
+                <TitleDoctor title={`You have ${onGoing.length} Appointment`} />
               </section>
 
               <div className="flex justify-center flex-wrap">
                 {onGoing.map((appointments) => (
-                  <OngoingAppointmentCard
+                  <OngoingAppointmentCardDoctor
                     key={appointments.id}
                     appointments={appointments}
                   />

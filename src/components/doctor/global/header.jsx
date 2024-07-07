@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { MdNotifications } from "react-icons/md";
 import { useLocation } from "react-router-dom";
 
-export default function Header() {
+export default function HeaderDoctor() {
   const location = useLocation();
   const user = {
     name: "AA Muktadir",
@@ -34,7 +34,7 @@ export default function Header() {
       <div className="flex items-center justify-end px-8 py-4 gap-6 text-[24px]">
         <MdNotifications />
 
-        <div className="" onClick={() => toggleModal(true)}>
+        <div className="cursor-pointer" onClick={() => toggleModal(true)}>
           <div className="w-7 h-7">
             <img
               src={user.image}
@@ -64,11 +64,19 @@ export default function Header() {
           <section className="h-1/2 border-t border-[#B3B3B3] p-6 flex flex-col items-start gap-2 text-[18px]">
             <button
               className={`hover:font-bold duration-100 ${
-                location.pathname === "/patient/patient-account" &&
+                location.pathname === "/doctor/profile" &&
                 "font-bold text-[#007055]"
               }`}
             >
-              <a href="/patient/patient-account">Accounts</a>
+              <a href="/doctor/profile">Profile</a>
+            </button>
+            <button
+              className={`hover:font-bold duration-100 ${
+                location.pathname === "/doctor/account" &&
+                "font-bold text-[#007055]"
+              }`}
+            >
+              <a href="/doctor/account">Accounts</a>
             </button>
             <button className="hover:font-bold hover:text-red-500 duration-100">
               Sign Out

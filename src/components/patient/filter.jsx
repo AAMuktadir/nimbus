@@ -14,10 +14,10 @@ export default function FilterForm() {
   };
 
   return (
-    <div className="py-6">
+    <div className="py-6 bg-white px-2 sm:px-4 rounded-lg">
       <Title title={"Filters"} />
       <form onSubmit={handleSubmit} className="max-w-4xl mx-auto pt-4">
-        <div className="flex justify-between items-end gap-4">
+        <div className="flex flex-col sm:flex-row justify-between sm:items-end gap-4">
           <div className="flex-1">
             <label className="font-medium">Name</label>
             <input

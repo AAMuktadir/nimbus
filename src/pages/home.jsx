@@ -13,7 +13,7 @@ export default function Home() {
         </button>
 
         <button className="text-white px-4 py-2 hover:bg-[#007055] duration-300 bg-black rounded-lg">
-          <a href="/patient/dashboard">Doctor</a>
+          <a href="/doctor/dashboard">Doctor</a>
         </button>
       </div>
     </div>

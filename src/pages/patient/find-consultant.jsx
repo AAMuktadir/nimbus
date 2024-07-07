@@ -41,7 +41,7 @@ export default function FindConsultant() {
 
       <div className="sm:w-4/5 bg-[#F6F6F6]">
         <Header />
-        <div className="p-8 ">
+        <div className="p-4 sm:p-8 ">
           <Title title={"Dentist"} />
 
           <FilterForm />

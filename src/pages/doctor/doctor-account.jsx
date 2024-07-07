@@ -1,21 +1,21 @@
 import React from "react";
 import { useState } from "react";
-import Sidebar from "../../components/patient/global/sidebar";
-import Header from "../../components/patient/global/header";
-import UpdateInfoForm from "../../components/patient/profileUpdateForm";
-import UpdatePasswordForm from "../../components/patient/passwordUpdateForm";
-import Title from "../../components/patient/global/title";
+import SidebarDoctor from "../../components/doctor/global/sidebar";
+import HeaderDoctor from "../../components/doctor/global/header";
+import UpdateInfoFormDoctor from "../../components/doctor/profileUpdateFormDoctor";
+import UpdatePasswordFormDoctor from "../../components/doctor/passwordUpdateForm";
+import TitleDoctor from "../../components/doctor/global/title";
 
-export default function PatientProfile() {
+export default function DoctorAccount() {
   const [showProfile, setShowProfile] = useState(true);
   return (
     <div className="w-full sm:flex">
       <div className="sm:w-1/5 min-h-full">
-        <Sidebar />
+        <SidebarDoctor />
       </div>
 
       <div className="sm:w-4/5 bg-[#F6F6F6]">
-        <Header />
+        <HeaderDoctor />
 
         <div className="p-4 sm:p-8">
           <div className="flex gap-6 pb-12">
@@ -40,13 +40,13 @@ export default function PatientProfile() {
 
           {showProfile ? (
             <div className="bg-white p-4 sm:p-8 sm:w-3/5 rounded-lg border border-[#B3B3B3]">
-              <Title title={"Personal Details"} />
-              <UpdateInfoForm />
+              <TitleDoctor title={"Personal Details"} />
+              <UpdateInfoFormDoctor />
             </div>
           ) : (
             <div className="min-h-screen">
               <div className="bg-white rounded-lg sm:w-3/5 border border-[#B3B3B3]">
-                <UpdatePasswordForm />
+                <UpdatePasswordFormDoctor />
               </div>
             </div>
           )}

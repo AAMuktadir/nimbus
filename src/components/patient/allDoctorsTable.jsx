@@ -51,7 +51,7 @@ export default function AllDoctorTable({ doctors }) {
                 </div>
               </td>
               <td className="py-2 px-4">
-                <button className="bg-gray-100 text-gray-700 py-1 px-3 rounded">
+                <button className="bg-gray-100 text-gray-700 py-1 px-3 rounded hover:bg-[#007055] duration-300 hover:text-white">
                   Book
                 </button>
               </td>
