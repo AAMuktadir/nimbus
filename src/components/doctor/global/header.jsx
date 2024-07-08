@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect, useRef } from "react";
 import { MdNotifications } from "react-icons/md";
 import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function HeaderDoctor() {
   const location = useLocation();
@@ -68,7 +69,7 @@ export default function HeaderDoctor() {
                 "font-bold text-[#007055]"
               }`}
             >
-              <a href="/doctor/profile">Profile</a>
+              <Link to="/doctor/profile">Profile</Link>
             </button>
             <button
               className={`hover:font-bold duration-100 ${
@@ -76,7 +77,7 @@ export default function HeaderDoctor() {
                 "font-bold text-[#007055]"
               }`}
             >
-              <a href="/doctor/account">Accounts</a>
+              <Link to="/doctor/account">Accounts</Link>
             </button>
             <button className="hover:font-bold hover:text-red-500 duration-100">
               Sign Out

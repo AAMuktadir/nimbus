@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { MdDashboard, MdMenu, MdClose } from "react-icons/md";
 import { AiOutlineSchedule } from "react-icons/ai";
 import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function SidebarDoctor() {
   const location = useLocation();
@@ -76,7 +77,7 @@ function NavigationLink({ icon, path, text, location }) {
     >
       <p className="text-[16px]">{icon}</p>
       <h4>
-        <a href={path}>{text}</a>
+        <Link to={path}>{text}</Link>
       </h4>
     </section>
   );

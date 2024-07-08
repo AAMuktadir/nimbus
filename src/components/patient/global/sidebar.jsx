@@ -4,6 +4,7 @@ import { IoChatbubble } from "react-icons/io5";
 import { FaSearch } from "react-icons/fa";
 import { AiOutlineSchedule } from "react-icons/ai";
 import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Sidebar() {
   const location = useLocation();
@@ -90,7 +91,7 @@ function NavigationLink({ icon, path, text, location }) {
     >
       <p className="text-[16px]">{icon}</p>
       <h4>
-        <a href={path}>{text}</a>
+        <Link to={path}>{text}</Link>
       </h4>
     </section>
   );
