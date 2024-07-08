@@ -1,10 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import TitleDoctor from "../../components/doctor/global/title";
-import SidebarDoctor from "../../components/doctor/global/sidebar";
-import HeaderDoctor from "../../components/doctor/global/header";
 import OngoingAppointmentCardDoctor from "../../components/doctor/ongointAppointmentCardDoctor";
 import AllPatientsTable from "../../components/doctor/allPatientsTable";
+import DoctorLayout from "../../layouts/doctorLayout";
 
 export default function AppointmentDoctor() {
   const [showAllAppointments, setShowAllAppointments] = useState(true);
@@ -85,60 +84,52 @@ export default function AppointmentDoctor() {
   ];
 
   return (
-    <div className="w-full sm:flex">
-      <div className="sm:w-1/5 min-h-full">
-        <SidebarDoctor />
-      </div>
+    <DoctorLayout>
+      <div className="h-screen p-4 sm:p-8">
+        <div className="flex gap-6 pb-12">
+          <button
+            className={`text-[18px] font-bold p-2 bg-white rounded-lg cursor-pointer ${
+              showAllAppointments ? "text-black" : "text-[#007055]"
+            }`}
+            onClick={() => setShowAllAppointments(false)}
+          >
+            Ongoing Appointment
+          </button>
 
-      <div className="sm:w-4/5 bg-[#F6F6F6] h-full">
-        <HeaderDoctor />
-
-        <div className="h-full p-4 sm:p-8">
-          <div className="flex gap-6 pb-12">
-            <button
-              className={`text-[18px] font-bold p-2 bg-white rounded-lg cursor-pointer ${
-                showAllAppointments ? "text-black" : "text-[#007055]"
-              }`}
-              onClick={() => setShowAllAppointments(false)}
-            >
-              Ongoing Appointment
-            </button>
-
-            <button
-              className={`text-[18px] font-bold p-2 bg-white rounded-lg cursor-pointer ${
-                showAllAppointments ? "text-[#007055]" : "text-black"
-              }`}
-              onClick={() => setShowAllAppointments(true)}
-            >
-              All Appointment
-            </button>
-          </div>
-
-          {showAllAppointments ? (
-            <div className="bg-white px-8 rounded-xl pb-8">
-              <section className="py-5">
-                <TitleDoctor title={`${allPatient.length} Appointed`} />
-              </section>
-              <AllPatientsTable patients={allPatient} />
-            </div>
-          ) : (
-            <div className="">
-              <section className="py-5">
-                <TitleDoctor title={`You have ${onGoing.length} Appointment`} />
-              </section>
-
-              <div className="flex justify-center flex-wrap">
-                {onGoing.map((appointments) => (
-                  <OngoingAppointmentCardDoctor
-                    key={appointments.id}
-                    appointments={appointments}
-                  />
-                ))}
-              </div>
-            </div>
-          )}
+          <button
+            className={`text-[18px] font-bold p-2 bg-white rounded-lg cursor-pointer ${
+              showAllAppointments ? "text-[#007055]" : "text-black"
+            }`}
+            onClick={() => setShowAllAppointments(true)}
+          >
+            All Appointment
+          </button>
         </div>
+
+        {showAllAppointments ? (
+          <div className="bg-white px-8 rounded-xl pb-8">
+            <section className="py-5">
+              <TitleDoctor title={`${allPatient.length} Appointed`} />
+            </section>
+            <AllPatientsTable patients={allPatient} />
+          </div>
+        ) : (
+          <div className="">
+            <section className="py-5">
+              <TitleDoctor title={`You have ${onGoing.length} Appointment`} />
+            </section>
+
+            <div className="flex justify-center flex-wrap">
+              {onGoing.map((appointments) => (
+                <OngoingAppointmentCardDoctor
+                  key={appointments.id}
+                  appointments={appointments}
+                />
+              ))}
+            </div>
+          </div>
+        )}
       </div>
-    </div>
+    </DoctorLayout>
   );
 }
