@@ -13,9 +13,9 @@ export default function ChatUI() {
   };
 
   return (
-    <div className="bg-white max-w-2xl mx-auto rounded-lg shadow overflow-hidden">
+    <div className="bg-white max-w-2xl mx-auto rounded-lg shadow overflow-hidden h-full flex flex-col justify-end">
       <div className="p-2 sm:p-8 space-y-4">
-        <div className="flex flex-col gap-4 text-sm sm:text-[14px] font-bold">
+        <div className="flex flex-col gap-4 justify-end h-full text-sm sm:text-[14px] font-bold">
           <div className="bg-[#D3E4E1] rounded-lg p-3 max-w-xs self-start">
             Good morning, Mrs. Smith. How are you feeling today?
           </div>

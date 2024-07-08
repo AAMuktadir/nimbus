@@ -13,11 +13,14 @@ import DoctorDashboard from "./pages/doctor/dashboard";
 import DoctorAccount from "./pages/doctor/doctor-account";
 import DoctorProfileDoctor from "./pages/doctor/doctor-profile";
 import DoctorVerification from "./pages/doctor/doctor-verification";
+import AuthPage from "./pages/auth-page";
 
 function App() {
   return (
     <Routes>
+      <Route path="/auth-page" element={<AuthPage />} />
       {/* Patient routes */}
+
       <Route path="/" element={<Home />} />
       <Route path="/patient/dashboard" element={<PatientDashboard />} />
       <Route path="/patient/find-consultant" element={<FindConsultant />} />
