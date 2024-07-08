@@ -5,7 +5,7 @@ import Header from "../components/patient/global/header";
 export default function PatientLayout({ children }) {
   return (
     <div className="w-full sm:flex min-h-screen">
-      <div className="sm:w-1/5 min-h-screen">
+      <div className="sm:w-1/5 sm:min-h-screen">
         <Sidebar />
       </div>
 

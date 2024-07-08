@@ -13,9 +13,9 @@ export default function ChatUI() {
   };
 
   return (
-    <div className="bg-white max-w-2xl mx-auto rounded-lg shadow overflow-hidden h-full flex flex-col justify-end">
+    <div className="bg-white max-w-2xl mx-auto rounded-lg shadow overflow-hidden h-full flex flex-col">
       <div className="p-2 sm:p-8 space-y-4">
-        <div className="flex flex-col gap-4 justify-end h-full text-sm sm:text-[14px] font-bold">
+        <div className="flex flex-col gap-4 justify-start h-full text-sm sm:text-[14px] font-bold">
           <div className="bg-[#D3E4E1] rounded-lg p-3 max-w-xs self-start">
             Good morning, Mrs. Smith. How are you feeling today?
           </div>
@@ -49,7 +49,7 @@ export default function ChatUI() {
           </div>
         </div>
       </div>
-      <div className="border-t border-gray-300 p-4 flex space-x-2">
+      <div className="p-4 flex items-end space-x-2 h-full">
         <input
           type="text"
           value={inputText}

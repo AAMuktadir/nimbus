@@ -5,7 +5,7 @@ import HeaderDoctor from "../components/doctor/global/header";
 export default function DoctorLayout({ children }) {
   return (
     <div className="w-full sm:flex min-h-screen">
-      <div className="sm:w-1/5 min-h-screen">
+      <div className="sm:w-1/5 sm:min-h-screen">
         <SidebarDoctor />
       </div>
 
