@@ -1,6 +1,7 @@
 import React from "react";
 import Sidebar from "../../components/patient/global/sidebar";
 import Header from "../../components/patient/global/header";
+import ChatComponent from "../../components/patient/chatComponent";
 
 export default function Chat() {
   return (
@@ -9,11 +10,11 @@ export default function Chat() {
         <Sidebar />
       </div>
 
-      <div className="sm:w-4/5 bg-[#F6F6F6]">
+      <div className="sm:w-4/5 bg-[#F6F6F6] h-full">
         <Header />
 
-        <div className="p-8 flex items-center justify-center h-screen">
-          <h4 className="text-3xl font-bold">This is Chat Page</h4>
+        <div className="w-full h-screen">
+          <ChatComponent />
         </div>
       </div>
     </div>

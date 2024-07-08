@@ -1,5 +1,5 @@
-import React from "react";
-import { MdDashboard } from "react-icons/md";
+import React, { useState } from "react";
+import { MdDashboard, MdMenu, MdClose } from "react-icons/md";
 import { IoChatbubble } from "react-icons/io5";
 import { FaSearch } from "react-icons/fa";
 import { AiOutlineSchedule } from "react-icons/ai";
@@ -7,73 +7,91 @@ import { useLocation } from "react-router-dom";
 
 export default function Sidebar() {
   const location = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <div className="w-full bg-[#0D0E12] h-full">
-      <div className="p-6">
-        <img src="/Logo.png" alt="logo" height="100" width="100" className="" />
+    <div className="h-full">
+      {/* Mobile Menu Button */}
+      <div className="flex items-center justify-between bg-[#0D0E12] p-4 md:hidden">
+        <MdMenu className="text-white text-3xl" onClick={toggleSidebar} />
+        <img src="/Logo.png" alt="logo" height="50" width="50" />
       </div>
 
-      <div className="px-6 pb-6">
-        <p className="border-dashed border-t border-[#909090]"></p>
-      </div>
+      {/* Overlay for mobile */}
+      <div
+        className={`fixed inset-0 bg-black bg-opacity-50 z-50 transition-opacity ${
+          isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        } md:hidden`}
+        onClick={toggleSidebar}
+      ></div>
 
-      <div className="text-white text-[15px] font-bold px-6">
-        <section
-          className={`flex items-center gap-4 py-3 px-2 rounded-lg ${
-            location.pathname === "/patient/dashboard" && "bg-[#1C1C21]"
-          }`}
-        >
-          <p className="text-[16px]">
-            <MdDashboard />
-          </p>
+      {/* Sidebar */}
+      <div
+        className={`fixed top-0 left-0 w-2/3 bg-[#0D0E12] h-full z-50 transform transition-transform ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        } md:relative md:translate-x-0 md:w-full`}
+      >
+        <div className="p-6 hidden md:block">
+          <img src="/Logo.png" alt="logo" height={100} width={100} />
+        </div>
+        <div className="p-6 md:hidden">
+          <MdClose
+            className="text-white text-3xl cursor-pointer"
+            onClick={toggleSidebar}
+          />
+        </div>
 
-          <h4>
-            <a href="/patient/dashboard">Dashboard</a>
-          </h4>
-        </section>
+        <div className="px-6 pb-6">
+          <p className="border-dashed border-t border-[#909090]"></p>
+        </div>
 
-        <section
-          className={`flex items-center gap-4 py-3 px-2  rounded-lg ${
-            location.pathname === "/patient/chat" && "bg-[#1C1C21]"
-          }`}
-        >
-          <p className="text-[16px]">
-            <IoChatbubble />
-          </p>
-
-          <h4>
-            <a href="/patient/chat">Chat</a>
-          </h4>
-        </section>
-
-        <section
-          className={`flex items-center gap-4 py-3 px-2  rounded-lg ${
-            location.pathname === "/patient/find-consultant" && "bg-[#1C1C21]"
-          }`}
-        >
-          <p className="text-[16px]">
-            <FaSearch />
-          </p>
-
-          <h4>
-            <a href="/patient/find-consultant">Find Consultant</a>
-          </h4>
-        </section>
-
-        <section
-          className={`flex items-center gap-4 py-3 px-2  rounded-lg ${
-            location.pathname === "/patient/appointment" && "bg-[#1C1C21]"
-          }`}
-        >
-          <p className="text-[16px]">
-            <AiOutlineSchedule />
-          </p>
-
-          <h4>
-            <a href="/patient/appointment">Appointment</a>
-          </h4>
-        </section>
+        <div className="text-white text-[15px] font-bold px-6">
+          {/* Navigation Links */}
+          <NavigationLink
+            icon={<MdDashboard />}
+            path="/patient/dashboard"
+            text="Dashboard"
+            location={location}
+          />
+          <NavigationLink
+            icon={<IoChatbubble />}
+            path="/patient/chat"
+            text="Chat"
+            location={location}
+          />
+          <NavigationLink
+            icon={<FaSearch />}
+            path="/patient/find-consultant"
+            text="Find Consultant"
+            location={location}
+          />
+          <NavigationLink
+            icon={<AiOutlineSchedule />}
+            path="/patient/appointment"
+            text="Appointment"
+            location={location}
+          />
+        </div>
       </div>
     </div>
+  );
+}
+
+function NavigationLink({ icon, path, text, location }) {
+  return (
+    <section
+      className={`flex items-center gap-4 py-3 px-2 rounded-lg ${
+        location.pathname === path && "bg-[#1C1C21]"
+      }`}
+    >
+      <p className="text-[16px]">{icon}</p>
+      <h4>
+        <a href={path}>{text}</a>
+      </h4>
+    </section>
   );
 }
