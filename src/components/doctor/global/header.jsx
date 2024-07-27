@@ -80,7 +80,7 @@ export default function HeaderDoctor() {
               <Link to="/doctor/account">Accounts</Link>
             </button>
             <button className="hover:font-bold hover:text-red-500 duration-100">
-              Sign Out
+              <Link to="/">Sign Out</Link>
             </button>
           </section>
         </div>
